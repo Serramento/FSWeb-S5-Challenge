@@ -11,6 +11,21 @@ const Header = (baslik, tarih, yazi) => {
   //    <span class="temp">{ yazi }</span>
   //  </div>
   //
+  const divHeader = document.createElement("div");
+  divHeader.classList.add("header");
+  const span1 = document.createElement("span");
+  span1.classList.add("date");
+  span1.textContent = tarih;
+  divHeader.appendChild(span1);
+  const headerH1 = document.createElement("h1");
+  headerH1.textContent = baslik;
+  divHeader.appendChild(headerH1);
+  const span2 = document.createElement("span");
+  span2.classList.add("temp");
+  span2.textContent = yazi;
+  divHeader.appendChild(span2);
+
+  return divHeader;
 }
 
 const headerEkleyici = (secici) => {
@@ -24,6 +39,10 @@ const headerEkleyici = (secici) => {
   // İPUCU: querySelector bir string alabilir (bknz: querySelector("#wrapper")) 
   // fakat aynı zamanda bir değişken de alabilir (bknz: querySelector(secici))
  
+  const node = document.querySelector(secici);
+  const header = Header("FSWeb-P0523'ten Haberler","31.07.2023","Hoşgeldiniz!")
+  node.appendChild(header);
+
 }
 
 export { Header, headerEkleyici }
